@@ -1,0 +1,38 @@
+// Place all the styles related to the book controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+A:link {text-decoration:none;color:#008B8B;}
+A:visited {text-decoration:none;color:#008B8B;}
+A:active {text-decoration:none;color:#008B8B;}
+A:hover {text-decoration:underline;color:#003366;} */
+
+#form_book{
+	font: small-caps 15px/15px "sans-serif", sans-serif;
+
+	.form_first {
+		border-bottom:1px outset #ffffff ;
+		float: left;
+		margin-top: 1em;
+		margin-right: 2em;
+		background:#FFFFCC; 
+		border-radius: 2px;
+		width: 10em;
+		height: 12em;
+		border-radius: 15px;
+	}
+
+	legend {
+		color: #dfd;
+		background:#700000 ;
+		font-family: sans-serif;
+		border-radius: 15px;
+		padding: 0.2em 1em;
+		font: small-caps 15px/15px "sans-serif", sans-serif;
+	}
+}
+
+.image_alugar{
+	width: 70px;
+}

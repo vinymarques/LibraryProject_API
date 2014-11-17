@@ -1,0 +1,39 @@
+<div class="book_form">
+  <fieldset>
+  <legend>Meus Livros</legend>
+  <% if @rents.last%>
+    <br>
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Autor</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <tbody>
+        <% @rents.each do |rent| %>
+          <% if rent.book %>
+            <tr>
+              <td>&nbsp;<%= rent.book.nome %>&nbsp;&nbsp;</td>
+              <td>&nbsp;&nbsp;<%= rent.book.autor %>&nbsp;&nbsp;</td>
+              <td>&nbsp;&nbsp;<%= link_to 'Fazer a devolução', rent, method: :delete, data: { confirm: 'Deseja realmente devolver o Livro?' } %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+      <br>
+      &nbsp;&nbsp;<%= link_to '← Voltar', books_path %>
+    <% else %>
+      <br>
+      <p>&nbsp;&nbsp;&nbsp;Nenhum Livro alugado...</p>
+      &nbsp;&nbsp;<%= link_to '← Voltar', books_path %>
+    <% end %>
+  </fieldset>
+</div>
+
+

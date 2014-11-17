@@ -1,0 +1,48 @@
+ <div><%= form_tag books_path, :method => 'get'  do %>
+   <%= text_field_tag :search, params[:search]%>
+   <%= submit_tag "Buscar", :nome => nil  %><a></a>
+ <% end %>
+</div>
+
+<%= will_paginate @posts, :style => 'color:#458B74' %>
+
+<% @books.each do |book| %>
+	<div id="form_book">
+		<form class="form_first">
+			<legend><%=book.nome %></legend>
+			<br>
+			&nbsp;<font >Autor:</font>
+			&nbsp;<%=truncate(strip_tags(book.autor),size:1) %>
+			<p>&nbsp;Disponíveis:&nbsp;<%=(book.quantidade_estoque.to_i)-(book.quantidade_alugada.to_i) %></p>
+			<p>&nbsp;<%= link_to '( Detalhes )', book %></p>
+
+			<% if user_signed_in? %>
+				<% rents = Rent.all.where(user_id: current_user.id) %>
+				<% if rents.last %>
+					<% rents.each do |r| %>
+						<% if r.book_id == book.id %>
+							<p align="right"><%= image_tag("alugado.png", class: 'image_alugar')%></p>
+							<% break %>
+						<% end %>
+
+						<% if r.book_id != book.id && (book.quantidade_estoque.to_i)-(book.quantidade_alugada.to_i) <= 0 && r  == rents.last %>
+							<p align="right"><%= image_tag("esgotado.png", class: 'image_alugar')%></p>
+							<% break %>
+						<% end %>
+
+						<% if r.book_id != book.id && (book.quantidade_estoque.to_i)-(book.quantidade_alugada.to_i) > 0 && r  == rents.last %>
+							&nbsp;&nbsp;<%= link_to image_tag("alugar_bottom.png", class: 'image_alugar'), rents_path(rent: {user_id: current_user, book_id: book, status: true}), method: :create, data: { confirm: 'Deseja realmente alugar?'} %>
+							<% break %>
+						<% end %>
+					<% end %>
+				<% else %>
+					<% if (book.quantidade_estoque.to_i)-(book.quantidade_alugada.to_i) <= 0 %>
+						<p align="right"><%= image_tag("esgotado.png", class: 'image_alugar')%></p>
+					<% else %>
+					&nbsp;&nbsp;<%= link_to image_tag("alugar_bottom.png", class: 'image_alugar'), rents_path(rent: {user_id: current_user, book_id: book, status: true}), method: :create, data: { confirm: 'Deseja realmente alugar?'} %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</form>
+	</div>
+<% end %>

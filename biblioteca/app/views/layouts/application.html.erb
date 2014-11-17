@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Biblioteca Online</title>
+		<title>Biblioteca</title>
+		<%= stylesheet_link_tag "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>	
+		<div id="banner">
+			<%= image_tag("logo.png") %>
+			Biblioteca Online
+		</div>
+		<div id="columns">
+					<div id="side"><font color="#FFFFFF">
+						<fieldset>
+     						<div align="center">
+     							<% if user_signed_in? %>
+     							<legend><%= current_user.nome %></legend>
+    							<p>
+    								<%= link_to image_tag("pasta_livros.png", class: 'size_icon'),rents_path %>&nbsp;
+    								<%= link_to image_tag("home.png", class: 'size_icon'),books_path %>&nbsp;
+    								<%= link_to image_tag("log_out.png", class: 'size_icon'), destroy_user_session_path, method: :delete, data: {confirm: 'Deseja realmente sair?'} %></p>
+    							<% else %>
+    								<ul>	
+										<li><b><%= link_to "Registrar-se", new_user_registration_path %></b> <i>ou</i> <b><%= link_to "Logar", new_user_session_path %></b></li>
+									</ul>
+    						<% end %></font>
+    					</div>
+    					</fieldset>
+    					<% if user_signed_in? %>
+	    					<ul>
+								<li><%= image_tag "nextn.png", class: 'size_icon_small' %><i><%= link_to '      Registrar um Livro', new_book_path %></i></li>
+								<li><%= image_tag "nextn.png", class: 'size_icon_small' %><i><%= link_to '      Meus Livros', rents_path %></i></li>
+							</ul>
+    					<% end %>
+    				</div>
+			<div id="main">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
+</html>

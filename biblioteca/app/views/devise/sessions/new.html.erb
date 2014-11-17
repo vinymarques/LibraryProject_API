@@ -1,0 +1,22 @@
+<div class="book_form">
+	<fieldset>
+	    <legend>Login</legend><br>
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <div><%= f.label :email %>
+		  <%= f.email_field :email, :autofocus => true %></div><br>
+
+		  <div><%= f.label :senha %>
+		  <%= f.password_field :password %></div><br>
+
+		  <% if devise_mapping.rememberable? -%>
+		    <div><%= f.label :lembrar_senha %>
+		    <%= f.check_box :remember_me %> </div>
+		  <% end -%>
+
+		  <p><%= f.submit "Entrar" %></p>
+		<% end %>
+	</fieldset>
+</div>
+
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,27 @@
+<div class="book_form">
+  <fieldset>
+    <legend>Registrar-se</legend><br>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div><%= f.label :nome %>
+      <%= f.text_field :nome, autofocus: true %></div><br>
+
+      <div><%= f.label :email %>
+      <%= f.email_field :email %></div><br>
+
+      <div><%= f.label :endereco %>
+      <%= f.text_field :endereco %></div><br>
+
+      <div><%= f.label :senha %>
+      <%= f.password_field :password %></div><br>
+
+      <div><%= f.label :confirmacao_de_senha %>
+      <%= f.password_field :password_confirmation %></div>
+
+      <p><%= f.submit "Registrar" %></p>
+    <% end %>
+  </fieldset>
+</div>
+
+<p><%= render "devise/shared/links" %></p>

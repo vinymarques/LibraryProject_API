@@ -1,0 +1,16 @@
+<div class="book_form">
+	<fieldset>
+		<legend><%= @book.nome %></legend><br>
+		<div>&nbsp;&nbsp;<b>Autor:&nbsp;&nbsp;</b><%= @book.autor %></div><br>
+
+		<div>&nbsp;&nbsp;<b>Qtd. em  Estoque:&nbsp;&nbsp;</b><%= @book.quantidade_estoque %></div><br>
+
+		<div>&nbsp;&nbsp;<b>Alugados:</b>&nbsp;&nbsp;<%= @book.quantidade_alugada %></div><br>
+
+		<div>&nbsp;&nbsp;<textarea , cols="40" rows="5"  readonly="readonly"><%= @book.descricao %></textarea></div><br />
+		
+		<p><%= link_to 'Editar', edit_book_path(@book) %>&nbsp; - &nbsp;<%= link_to 'Excluir', @book, method: :delete, data: {confirm: 'Você tem certeza?'} %><br></p>
+
+		&nbsp;&nbsp;<%= link_to '← Voltar', books_path %>
+	</fieldset>
+</div>

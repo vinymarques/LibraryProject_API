@@ -1,0 +1,219 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+A:link {text-decoration:none;color:#363636;}
+A:visited {text-decoration:none;color:#363636;}
+A:active {text-decoration:none;color:#363636;}
+A:hover {text-decoration:underline;color:#003366;background: none} 
+
+#banner {
+background: #2F4F4F;
+	padding: 10px;
+	border-bottom: 2px solid;
+	font: small-caps 40px/40px "Times new Roman", serif;
+	color: #FFFFFF;
+	text-align: center;
+
+	img {
+		float: left;
+		height: 45px;
+	}
+}
+
+#columns {
+	background: #000000;
+
+	#main {
+		margin-left: 17em;
+		padding: 1em;
+		background: white;
+	}
+
+	#side {
+		float: left;
+		padding: 1em 2em;
+		width: 13em;
+		height: 34em;
+		background: #000000;
+
+		input {
+			font-size: small;
+		}
+
+		ul {
+			padding: 0;
+
+			li {
+				list-style: none;
+
+				a{
+					color: #E8E8E8;
+					font-size: small;
+				}
+			}
+		}
+
+		#line {
+			border-bottom: 2px solid;
+			color: #1E90FF;
+			margin-right: 0em;
+			margin-right: 0em;
+			margin-bottom: 2em;
+		}
+
+		.dive{
+    		width:13px;
+    		height:11px;
+    		/*position: absolute;*/
+    		display: block;
+		}
+
+		fieldset{
+			background: #2F4F4F;
+			border-color: #000000;
+			border-radius: 7px;
+			border-style: hidden;
+
+			legend {
+				color: #dfd;
+				background: #1C1C1C;
+				font-family: sans-serif;
+				border-radius: 20px;
+				padding: 0.2em 1em;
+				width: 10em;
+			}
+		}
+	}
+}
+
+
+.book_form {
+	fieldset {
+		/*background: #efe;*/
+		background: #D9D9F3;
+		border-color: #1C1C1C;
+		border-radius: 2px;
+		border-style: hidden;
+		font: small-caps 15px/15px "sans-serif", sans-serif;
+
+		legend {
+			color: #dfd;
+			background: #2F4F4F;
+			font: small-caps 21px/21px "sans-serif", serif;
+			padding: 0.2em 1em;
+		}
+
+		textarea {
+			background: #D9D9F3;
+			border: #2F4F4F;
+			border-style: dashed;
+			color: #2F4F4F;
+		}
+
+		table {
+			/*border:1px outset #FFFFFF;*/
+			margin-left: 1em;
+			border-bottom: none;
+
+			th {
+				background: #68838B;
+				color: #FFFFFF;		
+			}
+
+			td {
+				border-bottom:1px outset #FFFFFF;
+				text-align: center;
+			}
+		}
+
+		 p {
+    		margin-left: 3cm;
+		}
+
+	}
+
+	form {
+		label {
+			width:  5em;
+			float: left;
+			text-align: left;
+			padding-top: 0.2em;
+			margin-right: 0.5em;
+			display: block;
+		}
+
+		select, textarea, input {
+			margin-left: 0.9em;
+		}
+
+		.submit {
+			margin-left: 4em;
+		}
+	}
+}
+
+
+
+.login_form {
+	fieldset {
+		background: #D9D9F3;
+		border-color: #000000;
+		padding: 1em 2em;
+		border-style: hidden;
+
+		legend {
+			color: #dfd;
+			background: #4A708B;
+			font-family: sans-serif;
+			padding: 0.2em 1em;
+			border-color: #141;
+			font-size: 15px;
+		}
+	}
+
+	form {
+		label {
+			width:  5em;
+			float: left;
+			text-align: left;
+			padding-top: 0.2em;
+			/*margin-right: 0.5em;*/
+			margin-left: 3em;
+			display: block;
+		}
+
+		select, textarea, input {
+			margin-left: 0.9em;
+		}
+
+		.submit {
+			margin-left: 4em;
+		}
+
+		br {
+			/*display: none*/
+		}
+	}
+}
+
+
+.size_icon {
+	width: 35px;
+}
+
+.size_icon_small {
+	width: 12px;
+}
